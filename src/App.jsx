@@ -7,7 +7,7 @@ import TodoItem from "./component/TodoItem";
 function App() {
   const [todos, setTodos] = useState([])
 
-  const addTodo = () => {
+  const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo},...prev])
   }
 
@@ -20,7 +20,7 @@ function App() {
   }
 
   const toggleComplete = (id) => {
-    setTodos((prev) => prev.map((prevTodo) => prevTodo=== id ? {...prevTodo, completed: !prevTodo.completed}: prevTodo))
+    setTodos((prev) => prev.map((prevTodo) => prevTodo.id=== id ? {...prevTodo, completed: !prevTodo.completed}: prevTodo))
   }
 
    useEffect(() => {
